@@ -1,11 +1,11 @@
 #container {
   text-align: center;
-
   position: absolute;
-  left: 0;
-  right: 0;
+  left: 35px;
+  right: 35px;
   top: 50%;
   transform: translateY(-50%);
+  
 }
 
 #container strong {
@@ -25,3 +25,57 @@
 #container a {
   text-decoration: none;
 }
+
+.logo-completo{
+  width: 50%;
+  margin: auto;
+  max-width: 180px;
+}
+
+.header-footer-title{
+  font-size: 12px;
+}
+
+ion-header {
+  text-align: center;
+
+}
+ion-footer {
+  text-align: center;
+}
+
+ion-title {
+  font-size: 12px;
+}
+
+.input-login {
+  width: 100%;
+  font-size: 14px;
+  margin: auto;
+}
+
+ion-item{
+  width: 100%;
+  max-width: 350px; 
+  margin: auto;
+}
+
+.icone{
+  color: rgb(107, 107, 107);
+}
+
+ion-button{
+  width: 100%;
+  max-width: 350px;
+  min-width: 120px;
+  min-height: 40px; 
+  max-height: 80px;
+  margin: 5px;
+  font-size: 12px;
+}
+
+ion-label{
+  color: rgb(237, 237, 237);
+  font-size: 12px;
+}
+

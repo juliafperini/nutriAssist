@@ -66,3 +66,26 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# projeto
+src/app/anamnese/
+.nx/
+android/
+src/app/services/
+src/assets/alimentos-pr.txt
+src/assets/alimentos.txt
+src/assets/imgs/
+src/app/register-user/
+src/app/relato/
+src/app/perfil-paciente/
+src/app/pesquisa-alimento/
+src/app/plano-alimentar/
+src/app/dash-master/
+src/app/dash-nutri/
+src/app/detalhe-plano/
+src/app/detalhe-relato/
+src/app/evolucao/
+src/app/indicadores/
+src/app/login/
+src/app/mgt-paciente/
+src/app/models/

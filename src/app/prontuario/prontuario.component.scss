@@ -1,0 +1,151 @@
+#container {
+    text-align: center;
+    position: absolute;
+    left: 35px;
+    right: 35px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: 50px;
+  }
+  
+  #container strong {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  
+  #container p {
+    font-size: 16px;
+    line-height: 22px;
+    color: #8c8c8c;
+    margin: 0;
+  }
+  
+  #container a {
+    text-decoration: none;
+  }
+  
+  ion-header {
+    text-align: center;
+  
+  }
+  ion-footer {
+    text-align: center;
+  }
+
+  ion-text{
+    text-align: justify;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    height: 0vh;
+    font-size: 14px;
+  }
+
+  ion-toggle{
+    display: flex;
+    margin: auto;
+    // max-width: 150px;
+    font-size: 14px;
+  }
+
+  ion-label{
+    text-align: justify;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+
+  ion-button{
+    display: flex;
+    justify-content: center;
+    max-width: 500px;
+    margin: auto;
+    font-size: 11px;    
+    text-align: center;
+  }
+
+  ion-title {
+    font-size: 5px;
+  }
+
+  ion-input{
+    width: 100%;
+    // margin: auto;
+    font-size: 14px;
+  }
+  
+  ion-col {
+    border: solid 1px #ffffff;
+    text-align: center;
+    justify-content: center;
+  }
+
+  ion-row {
+    margin: auto;
+    // margin-top: 1px;
+    background-color: #f2f2f2;
+    border: solid 1px #ffffff;
+    max-width: 500px;
+  }
+
+  ion-list{
+    width: 80%;
+    max-width: 500px;
+    margin: auto;
+  
+  }
+
+  ion-item{
+    font-size: 14px;
+    max-width: 500px;
+    margin: auto;
+  
+  }
+
+  ion-card{
+    justify-content: center;
+    max-width: 500px;
+    margin: auto;
+    background-color: #fafafa;
+  }
+
+  ion-card-title{
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+  }
+
+  ion-card-content{
+    justify-content: center;
+    margin: auto;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 45px;
+    height: 0vh; /* Ajuste conforme necessário */
+  }
+  
+  .logo {
+    width: 15%;
+    max-width: 100px;
+    min-width: 80px;
+  }
+
+  .lab-plan{
+    font-size: 14px;
+    color: #1d76b1;
+  }
+
+  .txt-cab{
+    font-size: 10px;
+    color: #8c8c8c;
+  }
+
+
+
+

@@ -1,0 +1,245 @@
+<ion-app>
+
+  <!-- Cabeçalho -->
+    <ion-menu contentId="main-content">
+  
+      <ion-header>
+        <ion-toolbar color="medium">
+          <ion-title class="ion-title-menu">Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        
+        <ion-button 
+          fill="clear" 
+          color="secondary" 
+          routerLink="/anamnese/{{paciente.codNutri}}/{{paciente.numPac}}"
+          class="btn-menu"
+          >Meu perfil
+        </ion-button><br/>
+
+        <ion-button 
+          fill="clear" 
+          color="secondary" 
+          routerLink="/relato/{{paciente.codNutri}}/{{paciente.numPac}}"
+          class="btn-menu"
+          >Relato
+        </ion-button><br/>
+
+        <ion-button 
+          fill="clear" 
+          color="secondary" 
+          routerLink="/evolucao/{{paciente.codNutri}}/{{paciente.numPac}}"
+          class="btn-menu"
+          >Evolucao
+        </ion-button><br/>
+
+        <ion-button 
+          fill="clear" 
+          color="secondary" 
+          routerLink="/plano-alimentar/{{paciente.codNutri}}/{{paciente.numPac}}"
+          class="btn-menu"
+          >Plano alimentar
+        </ion-button><br/>
+
+        <ion-button 
+        color="danger" 
+        fill="clear"
+        (click)="sair()"
+        class="btn-menu">
+        Sair
+        </ion-button>
+
+      </ion-content>
+    </ion-menu>
+    
+  
+   <div class="ion-page" id="main-content">
+     <ion-header>
+       <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+
+              <ion-buttons slot="end">
+
+                <ion-button 
+                class="ion-btn-barra"
+                fill="clear"
+                color="secundary"
+                routerLink="/perfil-paciente/{{paciente.codNutri}}/{{paciente.numPac}}"
+                >MEU PERFIL |</ion-button>
+
+              <ion-button 
+              class="ion-btn-barra"
+              fill="clear"
+              color="secundary"
+              (click)="refresh()"
+              >
+              <ion-icon name="refresh-outline"></ion-icon>
+              </ion-button>
+
+              <ion-button 
+              class="ion-btn-barra"
+              fill="clear"
+              color="danger"
+              (click)="sair()"
+              ><ion-icon name="log-out-outline"></ion-icon>
+              </ion-button>
+              </ion-buttons>
+
+          <ion-progress-bar *ngIf="mostrarBarraProgresso" [value]="progress"></ion-progress-bar>
+        </ion-toolbar>
+      </ion-header>
+     <!-- cabeçalho -->
+  
+     <!-- corpo -->
+     <ion-content 
+     [fullscreen]="true" 
+     class="ion-padding" 
+     role="feed" 
+     scrollY="true">
+      
+        <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+          <ion-refresher-content></ion-refresher-content>
+        </ion-refresher>
+        
+          <div id="container">
+
+            <div>
+              <img alt="Nutri Assist" class="logo" [src]="nutricionista.logoSimples" />
+            </div>
+            <ion-text *ngIf="paciente.status === false">Conta desativada</ion-text> 
+
+            <ion-text
+            *ngIf="obterProximoRelato() !== 'N/A'"
+            >
+            Próximo relato:
+            </ion-text>
+            <ion-text
+            class="relatoTxt"
+            *ngIf="obterProximoRelato() !== 'N/A'"
+            >
+            {{obterProximoRelato()}}
+            </ion-text>
+          
+            <!-- botao anamnese -->
+              <br/>
+              <ion-button 
+              fill="solid" 
+              color="light" 
+              class = "b-custom"
+              routerLink="/anamnese/{{paciente.codNutri}}/{{paciente.numPac}}"
+              >
+              <ion-label>
+                <img 
+                src="https://firebasestorage.googleapis.com/v0/b/nutriassist-dbd90.appspot.com/o/icones%2Fanamnese.png?alt=media&token=eb4aa093-1443-4e0e-98c9-cfbe939787b4" 
+                class = "logo-dash"/>
+                <ion-label>
+                  <ion-title>Anamnese</ion-title>
+                </ion-label>
+              </ion-label>
+             </ion-button>
+
+            <!-- botao Relato -->
+            
+            <ion-button 
+              fill="solid" color="light" 
+              class = "b-custom"
+              routerLink="/relato/{{paciente.codNutri}}/{{paciente.numPac}}"
+              >
+              <ion-label>
+                <img 
+                src="https://firebasestorage.googleapis.com/v0/b/nutriassist-dbd90.appspot.com/o/icones%2Frelato.png?alt=media&token=a228b942-8f6f-406c-a21e-d7931386fcd3" 
+                class = "logo-dash"/>
+                <ion-label>
+                  <ion-title>Relato</ion-title>
+                </ion-label>
+              </ion-label>
+            </ion-button>
+
+          <!-- botao Evolução -->
+            
+          <ion-button 
+            fill="solid" color="light" 
+            class = "b-custom"
+            routerLink="/evolucao/{{paciente.codNutri}}/{{paciente.numPac}}"
+            >
+            <ion-label>
+              <img 
+              src="https://firebasestorage.googleapis.com/v0/b/nutriassist-dbd90.appspot.com/o/icones%2Fevolucao.png?alt=media&token=e7b13871-deaa-48c2-994d-7cd52bb9927f" 
+              class = "logo-dash"/>
+              <ion-label>
+                <ion-title>Evolução</ion-title>
+              </ion-label>
+            </ion-label>
+          </ion-button>
+
+
+           <!-- botao pesquisar -->
+          <b> </b><br/>
+            
+          <ion-button 
+            fill="solid" color="light" 
+            class = "b-custom"
+            routerLink="/pesquisa-alimento/{{paciente.codNutri}}/{{paciente.numPac}}"
+            >
+            <ion-label>
+              <img 
+              src="https://firebasestorage.googleapis.com/v0/b/nutriassist-dbd90.appspot.com/o/icones%2Fprocurar.png?alt=media&token=fb6833d0-6f24-44b9-960b-11eef85cc680" 
+              class = "logo-dash"/>
+              <ion-label>
+                <ion-title>Pesquisar</ion-title>
+              </ion-label>
+            </ion-label>
+          </ion-button>
+
+          <ion-button 
+              fill="solid" color="light" 
+              class = "b-custom"
+              routerLink="/detalhe-plano/{{paciente.codNutri}}/{{paciente.numPac}}"
+              >
+              <ion-label>
+                <img 
+                src="https://firebasestorage.googleapis.com/v0/b/nutriassist-dbd90.appspot.com/o/icones%2Fplano.png?alt=media&token=55f29a86-85c2-44d4-9086-7eb537865521" 
+                class = "logo-dash"/>
+                <ion-label>
+                  <ion-title>Plano</ion-title>
+                  <ion-title>Alimentar</ion-title>
+                </ion-label>
+              </ion-label>
+            </ion-button>
+
+            <ion-button 
+            fill="solid" color="light" 
+            class = "b-custom"
+            routerLink="/custom-ref/{{paciente.codNutri}}/{{paciente.numPac}}"
+            >
+            <ion-label>
+              <img 
+              src="https://firebasestorage.googleapis.com/v0/b/nutriassist-dbd90.appspot.com/o/icones%2Fcustom.png?alt=media&token=6dfd5993-9237-4e18-94be-e84798cfd8ff" 
+              class = "logo-dash"/>
+              <ion-label>
+                <ion-title>Monte sua</ion-title>
+                <ion-title>Refeição</ion-title>
+              </ion-label>
+            </ion-label>
+          </ion-button>
+
+
+        </div>
+      </ion-content>
+     <!-- corpo -->
+  
+      <!-- Rodapé -->
+      <ion-footer>
+        <ion-toolbar>
+          <ion-title class="txt-footer">
+           Nutricionista: {{nutricionista.nome}}
+          </ion-title>
+        </ion-toolbar>
+       </ion-footer>
+       <!-- Rodapé -->
+   </div>
+  </ion-app>
+  
