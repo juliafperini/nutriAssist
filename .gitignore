@@ -89,5 +89,6 @@ src/app/indicadores/
 src/app/login/
 src/app/mgt-paciente/
 src/app/models/
-environments/
+environment.prod.ts
+environment.ts
 
